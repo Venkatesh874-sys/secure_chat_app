@@ -1,7 +1,9 @@
 🔐 Secure Chat App with End-to-End Encryption
+
 A real-time encrypted messaging system built using Flask, SocketIO, RSA, and AES. This project demonstrates secure communication between users with end-to-end encryption (E2EE), ensuring that only the intended recipient can decrypt and read messages.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 📦 Features
+
 RSA key generation for secure key exchange
 
 AES encryption for message confidentiality
@@ -13,6 +15,7 @@ Simple UI for registration, recipient selection, and message sending
 Manual decryption testing via test_decrypt.py
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 🛠️ Technologies Used
+
 Python 3
 
 Flask
@@ -26,6 +29,7 @@ HTML, JavaScript
 Base64 encoding
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 🚀 How to Run
+
 Clone or download the project folder.
 
 Install dependencies:
