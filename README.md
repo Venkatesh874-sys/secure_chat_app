@@ -1,5 +1,6 @@
 🔐 Secure Chat App with End-to-End Encryption
 A real-time encrypted messaging system built using Flask, SocketIO, RSA, and AES. This project demonstrates secure communication between users with end-to-end encryption (E2EE), ensuring that only the intended recipient can decrypt and read messages.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 📦 Features
 RSA key generation for secure key exchange
 
@@ -10,6 +11,7 @@ Real-time messaging using Flask-SocketIO
 Simple UI for registration, recipient selection, and message sending
 
 Manual decryption testing via test_decrypt.py
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 🛠️ Technologies Used
 Python 3
 
@@ -22,19 +24,16 @@ Cryptography library
 HTML, JavaScript
 
 Base64 encoding
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 🚀 How to Run
 Clone or download the project folder.
 
 Install dependencies:
-
-bash
 pip install flask flask-socketio cryptography
 Run the app:
-
-bash
 python app.py
 Open your browser at http://localhost:5000
-
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 📁 Project Structure
 Code
 Secure_Chat_App/
@@ -50,8 +49,11 @@ Secure_Chat_App/
 │   └── encrypted_output.png
 │   └── decryption_result.png
 ├── README.md
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 🔐 Code Overview
+
 app.py
+
 python
 from flask import Flask, render_template
 from flask_socketio import SocketIO, emit
@@ -90,7 +92,9 @@ def handle_message(data):
 
 if __name__ == '__main__':
     socketio.run(app, debug=True)
+    -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 crypto_utils.py
+
 python
 from cryptography.hazmat.primitives.asymmetric import rsa, padding
 from cryptography.hazmat.primitives import serialization, hashes
@@ -125,7 +129,10 @@ def aes_decrypt(ciphertext, key):
     cipher = Cipher(algorithms.AES(key), modes.CFB(iv))
     decryptor = cipher.decryptor()
     return decryptor.update(ciphertext[16:]) + decryptor.finalize()
+    -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    
 test_decrypt.py
+
 python
 from crypto_utils import *
 import base64
@@ -141,7 +148,11 @@ aes_key = decrypt_aes_key(encrypted_key, private_key)
 decrypted_msg = aes_decrypt(encrypted_msg, aes_key)
 
 print("Decrypted message:", decrypted_msg.decode())
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 templates/chat.html
+
 html
 <!DOCTYPE html>
 <html>
@@ -158,7 +169,10 @@ html
   <script src="/static/script.js"></script>
 </body>
 </html>
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 static/script.js
+
 javascript
 const socket = io();
 
@@ -193,15 +207,18 @@ socket.on('receive_message', data => {
   li.textContent = `${data.sender} ➤ [Encrypted] ${data.encrypted_msg}`;
   chatBox.appendChild(li);
 });
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 📌 Notes
+
 This app is for educational purposes and local testing.
 
 For production use, implement HTTPS and user authentication.
 
 Public key sharing is currently hardcoded; dynamic exchange is recommended.
-
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 👨‍💻 Developed By
 Golla Venkatesh Cybersecurity & Web Development Internship October 2025
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 <img width="888" height="400" alt="image" src="https://github.com/user-attachments/assets/436afbbd-c281-4d13-8aa0-7434a6c34c5e" />
 <img width="395" height="586" alt="image" src="https://github.com/user-attachments/assets/58c8779f-6395-4e13-bcde-8dab1946b6aa" />
 <img width="766" height="328" alt="image" src="https://github.com/user-attachments/assets/3936f2cc-c33f-42a1-863f-a9fb24635fd5" />
